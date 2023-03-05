@@ -22,7 +22,7 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Lareb Zar Khan</h1>
-								<p>Hey there, welcome to my digital world! Come take a stroll through my life, work, and research. </p>
+								<p>Hi, welcome to my digital world! Come take a stroll through my life, work, and research. </p>
 							</div>
 						</div>
 						<nav>
@@ -574,26 +574,30 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="contact.php">
+								<form method="post" action="send_email.php">
 									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
+									  <div class="field half">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" required>
+									  </div>
+									  <div class="field half">
+										<label for="email">Email</label>
+										<input type="email" name="email" id="email" required>
+									  </div>
+									  <div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="4" required></textarea>
+									  </div>
 									</div>
-									
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-									</ul>
-								</form>
+									<button type="submit" class="primary" id="submit-btn">Send Message</button>
+								  </form>
+								  
+								  <div class="confirmation">
+									<h3>Thank you for your message!</h3>
+									<p>I will get back to you as soon as possible.</p>
+								  </div>
+								  
+
 
 								<ul class="icons">
 									<li><a href="https://twitter.com/larebzarkhan" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -964,6 +968,37 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				};
 			  </script>
 
+	    <style>
+			.confirmation {
+			display: none;
+			text-align: center;
+			margin-top: 20px;
+			}
+
+			.confirmation h3 {
+			font-size: 24px;
+			margin-bottom: 10px;
+			}
+
+			.confirmation p {
+			font-size: 18px;
+			margin-bottom: 20px;
+			}
+
+		</style>
+
+		
+        <script>
+		const form = document.querySelector('form');
+		const confirmation = document.querySelector('.confirmation');
+
+		form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		confirmation.style.display = 'block';
+		form.reset();
+		});
+
+		</script>
 
 	</body>
 </html>
