@@ -116,6 +116,14 @@ a{color:inherit;text-decoration:none}
 .exp-body strong{color:var(--ink);font-weight:600}
 .exp-sub{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:22px 0 8px}
 
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
+.skill-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:transform .3s,border-color .3s}
+.skill-card:hover{transform:translateY(-3px);border-color:var(--border-h)}
+.skill-icon{width:44px;height:44px;border-radius:var(--r-sm);background:var(--accent-soft);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:18px}
+.skill-card h3{font-size:17px;font-weight:700;margin-bottom:10px}
+.skill-card p{font-size:15px;line-height:1.65;color:var(--ink-2)}
+
 /* EDUCATION */
 .edu-list{display:grid;gap:16px;margin-top:48px}
 .edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px 36px;transition:transform .3s,border-color .3s}
@@ -160,6 +168,21 @@ a{color:inherit;text-decoration:none}
 .book-name{font-size:15px;font-weight:600;line-height:1.3;margin-bottom:4px}
 .book-author{font-size:13px;color:var(--ink-3)}
 
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start;margin-top:48px}
+.contact-heading{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:16px}
+.contact-desc{font-size:17px;color:var(--ink-2);line-height:1.65;margin-bottom:32px;max-width:460px}
+.contact-email{display:inline-block;font-size:17px;font-weight:600;color:var(--accent);border-bottom:2px solid var(--accent-border);padding-bottom:4px;transition:border-color .25s ease;letter-spacing:-.01em}
+.contact-email:hover{border-color:var(--accent)}
+.contact-links{display:grid;gap:2px}
+.contact-link{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-top:1px solid var(--border);transition:padding-left .3s ease}
+.contact-link:last-child{border-bottom:1px solid var(--border)}
+.contact-link:hover{padding-left:12px}
+.contact-link-label{font-size:15px;font-weight:500;color:var(--ink);transition:color .25s ease}
+.contact-link:hover .contact-link-label{color:var(--accent)}
+.contact-link-handle{font-size:13px;color:var(--ink-3);transition:color .25s ease}
+.contact-link:hover .contact-link-handle{color:var(--accent)}
+
 /* CTA */
 .cta-band{
   margin:80px auto 0;max-width:var(--max);padding:0 var(--g);
@@ -196,7 +219,7 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
   .nav-toggle{display:block;z-index:300}
   .about-split{grid-template-columns:1fr;gap:32px}
   .about-aside{position:static}
-  .skills-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
   .talk-card{grid-template-columns:1fr;gap:10px}
   .exp-top,.edu-top{flex-direction:column;gap:4px}
   footer{grid-template-columns:1fr;gap:28px}
@@ -216,7 +239,7 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
 
 <div class="nav-outer" id="navOuter">
 <nav class="nav">
-  <a href="#hero" class="nav-brand">Lareb Zar Khan</a>
+  <a href="#home" class="nav-brand">Lareb Zar Khan</a>
   <div class="nav-links" id="navLinks">
     <a href="#about" onclick="closeNav()">About</a>
     <a href="#experience" onclick="closeNav()">Experience</a>
@@ -224,7 +247,7 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
     <a href="#publications" onclick="closeNav()">Publications</a>
     <a href="#talks" onclick="closeNav()">Talks</a>
     <a href="#reading" onclick="closeNav()">Bookshelf</a>
-    <a href="mailto:larebzarkhan@gmail.com" onclick="closeNav()">Contact</a>
+    <a href="#contact" onclick="closeNav()">Contact</a>
   </div>
   <button class="nav-toggle" id="navToggle" aria-label="Menu" onclick="toggleNav()">
     <svg viewBox="0 0 24 24" fill="none"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
@@ -233,7 +256,7 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
 </div>
 
 <!-- HERO -->
-<div class="hero" id="hero">
+<div class="hero" id="home">
   <div class="hero-eyebrow">Optical Network Design Engineer · Meta</div>
   <h1>Building the Optical Network Behind AI and the World's Largest Social Platforms</h1>
   <p class="hero-desc">Designing the long-haul fibre infrastructure at Meta that connects billions of people and powers the AI workloads.</p>
@@ -245,7 +268,7 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
       <svg viewBox="0 0 1200 514" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
 
         <!-- LEFT: AI / Neural network -->
-        <text x="95" y="55" fill="rgba(212,149,106,0.45)" font-family="Inter,sans-serif" font-size="16" font-weight="800" letter-spacing="0.18em">AI</text>
+        <text x="95" y="55" fill="rgba(212,149,106,0.45)" font-family="Inter,sans-serif" font-size="16" font-weight="800" letter-spacing="0.18em" pointer-events="none" style="user-select:none;-webkit-user-select:none">AI</text>
 
         <!-- neural connections (drawn first, behind nodes) -->
         <line x1="80" y1="140" x2="210" y2="180" stroke="rgba(212,149,106,0.25)" stroke-width="1.5"/>
@@ -293,27 +316,49 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
           <animateMotion dur="3s" repeatCount="indefinite" path="M880 330 Q720 250 600 310 Q480 370 340 240"/>
         </circle>
 
-        <!-- RIGHT: Optical network topology -->
-        <text x="970" y="55" fill="rgba(212,149,106,0.45)" font-family="Inter,sans-serif" font-size="16" font-weight="800" letter-spacing="0.18em">OPTICAL</text>
+        <!-- RIGHT: Optical network topology with ROADM nodes -->
+        <text x="910" y="55" fill="rgba(212,149,106,0.45)" font-family="Inter,sans-serif" font-size="14" font-weight="800" letter-spacing="0.14em" pointer-events="none" style="user-select:none;-webkit-user-select:none">OPTICAL NETWORK</text>
 
-        <!-- optical links -->
-        <line x1="880" y1="170" x2="1010" y2="130" stroke="rgba(212,149,106,0.3)" stroke-width="1.8"/>
-        <line x1="880" y1="170" x2="1010" y2="250" stroke="rgba(212,149,106,0.35)" stroke-width="2"/>
-        <line x1="880" y1="330" x2="1010" y2="250" stroke="rgba(212,149,106,0.3)" stroke-width="1.8"/>
-        <line x1="880" y1="330" x2="1010" y2="380" stroke="rgba(212,149,106,0.25)" stroke-width="1.5"/>
-        <line x1="1010" y1="130" x2="1130" y2="190" stroke="rgba(212,149,106,0.2)" stroke-width="1.5"/>
-        <line x1="1010" y1="250" x2="1130" y2="190" stroke="rgba(212,149,106,0.25)" stroke-width="1.5"/>
-        <line x1="1010" y1="250" x2="1130" y2="320" stroke="rgba(212,149,106,0.25)" stroke-width="1.5"/>
-        <line x1="1010" y1="380" x2="1130" y2="320" stroke="rgba(212,149,106,0.2)" stroke-width="1.5"/>
+        <!-- fibre spans between ROADMs -->
+        <line x1="880" y1="170" x2="1010" y2="130" stroke="rgba(212,149,106,0.35)" stroke-width="2.5"/>
+        <line x1="880" y1="170" x2="1010" y2="250" stroke="rgba(212,149,106,0.4)" stroke-width="2.5"/>
+        <line x1="880" y1="330" x2="1010" y2="250" stroke="rgba(212,149,106,0.35)" stroke-width="2.5"/>
+        <line x1="880" y1="330" x2="1010" y2="380" stroke="rgba(212,149,106,0.3)" stroke-width="2"/>
+        <line x1="1010" y1="130" x2="1130" y2="190" stroke="rgba(212,149,106,0.28)" stroke-width="2"/>
+        <line x1="1010" y1="250" x2="1130" y2="190" stroke="rgba(212,149,106,0.32)" stroke-width="2"/>
+        <line x1="1010" y1="250" x2="1130" y2="320" stroke="rgba(212,149,106,0.32)" stroke-width="2"/>
+        <line x1="1010" y1="380" x2="1130" y2="320" stroke="rgba(212,149,106,0.28)" stroke-width="2"/>
+        <!-- cross-connect spans -->
+        <line x1="880" y1="170" x2="880" y2="330" stroke="rgba(212,149,106,0.15)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="1010" y1="130" x2="1010" y2="380" stroke="rgba(212,149,106,0.12)" stroke-width="1" stroke-dasharray="4 4"/>
+        <line x1="1130" y1="190" x2="1130" y2="320" stroke="rgba(212,149,106,0.12)" stroke-width="1" stroke-dasharray="4 4"/>
 
-        <!-- optical nodes with glow -->
-        <circle cx="880" cy="170" r="12" fill="rgba(212,149,106,0.2)"/><circle cx="880" cy="170" r="7" fill="var(--accent)" opacity="0.9"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.2s" repeatCount="indefinite"/></circle>
-        <circle cx="880" cy="330" r="12" fill="rgba(212,149,106,0.18)"/><circle cx="880" cy="330" r="7" fill="var(--accent)" opacity="0.85"><animate attributeName="opacity" values="0.65;1;0.65" dur="2.6s" repeatCount="indefinite"/></circle>
-        <circle cx="1010" cy="130" r="8" fill="rgba(212,149,106,0.15)"/><circle cx="1010" cy="130" r="4.5" fill="var(--accent)" opacity="0.75"><animate attributeName="opacity" values="0.55;0.95;0.55" dur="3s" repeatCount="indefinite"/></circle>
-        <circle cx="1010" cy="250" r="10" fill="rgba(212,149,106,0.18)"/><circle cx="1010" cy="250" r="5.5" fill="var(--accent)" opacity="0.85"><animate attributeName="opacity" values="0.65;1;0.65" dur="2.4s" repeatCount="indefinite"/></circle>
-        <circle cx="1010" cy="380" r="8" fill="rgba(212,149,106,0.15)"/><circle cx="1010" cy="380" r="4.5" fill="var(--accent)" opacity="0.7"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.2s" repeatCount="indefinite"/></circle>
-        <circle cx="1130" cy="190" r="8" fill="rgba(212,149,106,0.15)"/><circle cx="1130" cy="190" r="4.5" fill="var(--accent)" opacity="0.75"><animate attributeName="opacity" values="0.55;0.9;0.55" dur="2.8s" repeatCount="indefinite"/></circle>
-        <circle cx="1130" cy="320" r="8" fill="rgba(212,149,106,0.15)"/><circle cx="1130" cy="320" r="4.5" fill="var(--accent)" opacity="0.7"><animate attributeName="opacity" values="0.5;0.85;0.5" dur="3.4s" repeatCount="indefinite"/></circle>
+        <!-- ROADM nodes: outer ring (housing) + inner circle (WSS/switch) + centre dot -->
+        <!-- ROADM A (hub) -->
+        <circle cx="880" cy="170" r="18" fill="none" stroke="rgba(212,149,106,0.3)" stroke-width="1.5"/><circle cx="880" cy="170" r="11" fill="rgba(212,149,106,0.12)"/><circle cx="880" cy="170" r="5" fill="var(--accent)" opacity="0.9"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.2s" repeatCount="indefinite"/></circle>
+        <!-- ROADM B (hub) -->
+        <circle cx="880" cy="330" r="18" fill="none" stroke="rgba(212,149,106,0.28)" stroke-width="1.5"/><circle cx="880" cy="330" r="11" fill="rgba(212,149,106,0.1)"/><circle cx="880" cy="330" r="5" fill="var(--accent)" opacity="0.85"><animate attributeName="opacity" values="0.65;1;0.65" dur="2.6s" repeatCount="indefinite"/></circle>
+        <!-- ROADM C -->
+        <circle cx="1010" cy="130" r="14" fill="none" stroke="rgba(212,149,106,0.25)" stroke-width="1.2"/><circle cx="1010" cy="130" r="8" fill="rgba(212,149,106,0.08)"/><circle cx="1010" cy="130" r="4" fill="var(--accent)" opacity="0.75"><animate attributeName="opacity" values="0.55;0.95;0.55" dur="3s" repeatCount="indefinite"/></circle>
+        <!-- ROADM D (central) -->
+        <circle cx="1010" cy="250" r="16" fill="none" stroke="rgba(212,149,106,0.3)" stroke-width="1.5"/><circle cx="1010" cy="250" r="10" fill="rgba(212,149,106,0.1)"/><circle cx="1010" cy="250" r="5" fill="var(--accent)" opacity="0.88"><animate attributeName="opacity" values="0.68;1;0.68" dur="2.4s" repeatCount="indefinite"/></circle>
+        <!-- ROADM E -->
+        <circle cx="1010" cy="380" r="14" fill="none" stroke="rgba(212,149,106,0.22)" stroke-width="1.2"/><circle cx="1010" cy="380" r="8" fill="rgba(212,149,106,0.08)"/><circle cx="1010" cy="380" r="4" fill="var(--accent)" opacity="0.7"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.2s" repeatCount="indefinite"/></circle>
+        <!-- ROADM F -->
+        <circle cx="1130" cy="190" r="14" fill="none" stroke="rgba(212,149,106,0.22)" stroke-width="1.2"/><circle cx="1130" cy="190" r="8" fill="rgba(212,149,106,0.08)"/><circle cx="1130" cy="190" r="4" fill="var(--accent)" opacity="0.75"><animate attributeName="opacity" values="0.55;0.9;0.55" dur="2.8s" repeatCount="indefinite"/></circle>
+        <!-- ROADM G -->
+        <circle cx="1130" cy="320" r="14" fill="none" stroke="rgba(212,149,106,0.22)" stroke-width="1.2"/><circle cx="1130" cy="320" r="8" fill="rgba(212,149,106,0.08)"/><circle cx="1130" cy="320" r="4" fill="var(--accent)" opacity="0.7"><animate attributeName="opacity" values="0.5;0.85;0.5" dur="3.4s" repeatCount="indefinite"/></circle>
+
+        <!-- Wavelength signals travelling along optical spans -->
+        <circle r="3" fill="var(--accent)" opacity="0.7">
+          <animateMotion dur="2s" repeatCount="indefinite" path="M880 170 L1010 250 L1130 190"/>
+        </circle>
+        <circle r="3" fill="var(--accent)" opacity="0.6">
+          <animateMotion dur="2.5s" repeatCount="indefinite" path="M880 330 L1010 380 L1130 320"/>
+        </circle>
+        <circle r="3" fill="var(--accent)" opacity="0.5">
+          <animateMotion dur="3s" repeatCount="indefinite" path="M1130 320 L1010 250 L880 170"/>
+        </circle>
 
       </svg>
     </div>
@@ -346,7 +391,6 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
 <!-- EXPERIENCE -->
 <div class="section" id="experience">
   <div class="section-eyebrow sr">Experience</div>
-  <div class="section-heading sr">Where I've worked</div>
 
   <div class="exp-list">
     <article class="exp-card sr">
@@ -360,7 +404,7 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
 
     <article class="exp-card sr">
       <div class="exp-top">
-        <div class="exp-role">Research Engineer Intern (Optical Networks)</div>
+        <div class="exp-role">Research Engineer Intern</div>
         <div class="exp-date">Jan — Jun 2024</div>
       </div>
       <div class="exp-company">Orange Labs · Lannion, France</div>
@@ -369,7 +413,7 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
 
     <article class="exp-card sr">
       <div class="exp-top">
-        <div class="exp-role">Research Engineer Intern (Optical Networks)</div>
+        <div class="exp-role">Research Engineer Intern</div>
         <div class="exp-date">Jan — Dec 2023</div>
       </div>
       <div class="exp-company">Infinera · Lisbon, Portugal</div>
@@ -390,7 +434,7 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
       <div class="exp-body">
         <ul>
           <li>Led a field team of 10, rectifying faults under SLAs for corporate and consumer customers.</li>
-          <li>Oversaw the maintenance of the access network.</li>
+          <li>Oversaw the maintenance of the Access Network.</li>
           <li>Planned and executed wired-network expansion.</li>
         </ul>
       </div>
@@ -403,7 +447,6 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
 <!-- EDUCATION -->
 <div class="section" id="education">
   <div class="section-eyebrow sr">Education</div>
-  <div class="section-heading sr">What I've studied</div>
 
   <div class="edu-list">
     <article class="edu-card sr">
@@ -506,7 +549,6 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
 <!-- TALKS -->
 <div class="section" id="talks">
   <div class="section-eyebrow sr">Talks</div>
-  <div class="section-heading sr">Conferences &amp; invited talks</div>
 
   <div class="talks-list">
     <article class="talk-card sr">
@@ -514,42 +556,42 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
         <div class="talk-title">AI for Photonics — Panel Session</div>
         <div class="talk-venue"><strong>TOP Conference 2026</strong> · London · Feb 2026</div>
       </div>
-      <span class="talk-badge">Panel</span>
+      <span class="talk-badge">Panel Discussion</span>
     </article>
     <article class="talk-card sr">
       <div>
         <div class="talk-title">Optimizing Deep-Learning-Based Failure Management in Optical Networks by Monitoring Relative Neural Activity</div>
         <div class="talk-venue"><strong>ONDM 2024</strong> · Madrid · May 2024</div>
       </div>
-      <span class="talk-badge">Conference</span>
+      <span class="talk-badge">Conference Talk</span>
     </article>
     <article class="talk-card sr">
       <div>
         <div class="talk-title">A Data-Centric View of Machine Learning for Optical Network Failure Management</div>
         <div class="talk-venue"><strong>ONDM 2023</strong> · Coimbra · May 2023</div>
       </div>
-      <span class="talk-badge">Invited</span>
+      <span class="talk-badge">Invited Talk</span>
     </article>
     <article class="talk-card sr">
       <div>
         <div class="talk-title">Data Augmentation to Reduce Computational Complexity of Neural-Network-Based Soft-Failure Cause Identifier</div>
         <div class="talk-venue"><strong>OFC</strong> · San Diego · March 2023</div>
       </div>
-      <span class="talk-badge">Conference</span>
+      <span class="talk-badge">Conference Talk</span>
     </article>
     <article class="talk-card sr">
       <div>
         <div class="talk-title">Data Augmentation to Improve Machine Learning for Optical Network Failure Management</div>
         <div class="talk-venue"><strong>ECOC</strong> · Basel · September 2022</div>
       </div>
-      <span class="talk-badge">Conference</span>
+      <span class="talk-badge">Conference Talk</span>
     </article>
     <article class="talk-card sr">
       <div>
         <div class="talk-title">Optical Network Alarms Classification using Unsupervised Machine Learning</div>
         <div class="talk-venue"><strong>PSC</strong> · Toyama · July 2022</div>
       </div>
-      <span class="talk-badge">Conference</span>
+      <span class="talk-badge">Conference Talk</span>
     </article>
   </div>
 </div>
@@ -563,12 +605,29 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
   <div class="books-grid" id="booksGrid"></div>
 </div>
 
-<!-- CTA -->
-<div class="cta-band">
-  <div class="cta-inner sr">
-    <h2>Let's talk optical networks</h2>
-    <p>DWDM design, ML for failure management, or a good book — always happy to connect.</p>
-    <a href="mailto:larebzarkhan@gmail.com" class="cta-btn">Send an email →</a>
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <div class="section-eyebrow sr">Contact</div>
+  
+  <div class="contact-grid sr">
+    <div class="contact-primary">
+      <h2 class="contact-heading">Get in touch</h2>
+      <p class="contact-desc">If like to talk about AI for optical networks or/and optical networks for AI — let's connect.</p>
+      <a href="mailto:larebzarkhan@gmail.com" class="contact-email">larebzarkhan@gmail.com</a>
+    </div>
+    
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/larebzarkhan/" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-label">LinkedIn</span>
+        <span class="contact-link-handle">@larebzarkhan</span>
+      </a>
+      <a href="https://twitter.com/larebzarkhan" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-label">Twitter</span>
+        <span class="contact-link-handle">@larebzarkhan</span>
+      </a>
+    </div>
   </div>
 </div>
 
@@ -586,6 +645,7 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
     <a href="#publications">Publications</a>
     <a href="#talks">Talks</a>
     <a href="#reading">Reading</a>
+    <a href="#contact">Contact</a>
   </div>
   <div class="foot-col">
     <h4>Elsewhere</h4>
@@ -604,7 +664,7 @@ document.querySelectorAll('.sr').forEach(el=>io.observe(el));
 
 const navAs=document.querySelectorAll('.nav-links a:not(.nav-cta)');
 const sio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id))}})},{threshold:.25});
-document.querySelectorAll('[id]').forEach(s=>{if(s.classList.contains('section')||s.id==='hero'||s.id==='about')sio.observe(s)});
+document.querySelectorAll('[id]').forEach(s=>{if(s.classList.contains('section')||s.id==='home'||s.id==='about')sio.observe(s)});
 
 const books=[
 ["The Four Agreements","Miguel Ruiz"],["Tuesdays with Morrie","Mitch Albom"],
