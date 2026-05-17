@@ -34,9 +34,9 @@ body{
 a{color:inherit;text-decoration:none}
 
 /* NAV */
-.nav-outer{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px var(--g);transition:background .35s}
+.nav-outer{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px var(--g);transition:background .35s;display:flex;justify-content:center}
 .nav-outer.scrolled{background:rgba(12,12,12,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
-.nav{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--border);border-radius:99px;padding:10px 12px 10px 28px}
+.nav{display:inline-flex;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--border);border-radius:99px;padding:10px 16px;position:relative}
 .nav-brand{font-weight:800;font-size:17px;letter-spacing:-.03em;white-space:nowrap}
 .nav-brand span{color:var(--accent)}
 .nav-links{display:flex;align-items:center;gap:2px}
@@ -45,7 +45,7 @@ a{color:inherit;text-decoration:none}
 .nav-links a.active{color:var(--ink);background:rgba(255,255,255,.06)}
 .nav-cta{font-size:14px;font-weight:600;color:var(--bg);background:var(--accent);padding:10px 24px;border-radius:99px;transition:background .2s,transform .2s;margin-left:4px}
 .nav-cta:hover{background:var(--ink);transform:scale(1.03)}
-.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:10px;background:var(--surface);border:1px solid var(--border);border-radius:99px}
 .nav-toggle svg{width:22px;height:22px;stroke:var(--ink);stroke-width:2}
 
 /* HERO */
@@ -54,9 +54,9 @@ a{color:inherit;text-decoration:none}
   align-items:center;justify-content:center;text-align:center;
   padding:160px var(--g) 80px;
 }
+.hero-name{font-size:clamp(32px,5vw,56px);font-weight:800;color:var(--ink);letter-spacing:-.03em;margin-bottom:12px}
 .hero-eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
-.hero h1{font-size:clamp(32px,5.5vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1.08;max-width:860px;margin-bottom:28px}
-.hero-desc{font-size:clamp(16px,1.8vw,19px);color:var(--ink-2);max-width:540px;line-height:1.65;margin-bottom:48px}
+.hero h1{font-size:clamp(17px,2.2vw,24px);font-weight:500;letter-spacing:-.01em;line-height:1.45;max-width:640px;margin-bottom:48px;color:var(--ink-2)}
 
 /* hero image band */
 .hero-img{
@@ -211,23 +211,57 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
 .sr.vis{opacity:1;transform:translateY(0)}
 
 /* RESPONSIVE */
+
+/* Tablet */
 @media(max-width:900px){
+  .nav{padding:10px 12px}
   .nav-links{display:none;position:fixed;inset:0;background:rgba(12,12,12,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:20px;z-index:200}
   .nav-links.open{display:flex}
-  .nav-links a{font-size:18px;padding:12px}
-  .nav-cta{font-size:16px;padding:14px 32px}
-  .nav-toggle{display:block;z-index:300}
+  .nav-links a{font-size:18px;padding:14px 20px}
+  .nav-toggle{display:flex;align-items:center;justify-content:center;z-index:300}
   .about-split{grid-template-columns:1fr;gap:32px}
   .about-aside{position:static}
   .contact-grid{grid-template-columns:1fr;gap:40px}
   .talk-card{grid-template-columns:1fr;gap:10px}
+  .pub-card{grid-template-columns:50px 1fr;gap:16px}
   .exp-top,.edu-top{flex-direction:column;gap:4px}
+  .exp-card{padding:28px 24px}
+  .edu-card{padding:28px 24px}
+  .talk-card{padding:24px 28px}
+  .pub-card{padding:24px 28px}
   footer{grid-template-columns:1fr;gap:28px}
+  .hero-img{aspect-ratio:16/9}
 }
+
+/* Phone */
 @media(max-width:600px){
-  .hero{padding:140px 20px 60px}
-  .section{padding:80px 20px}
+  .hero{padding:120px 16px 48px}
+  .hero-name{font-size:clamp(28px,8vw,40px)}
+  .hero h1{font-size:clamp(15px,4vw,18px);max-width:90%}
+  .hero-eyebrow{font-size:12px;letter-spacing:.1em}
+  .section{padding:64px 16px}
+  .section-eyebrow{font-size:12px}
+  .hero-img{aspect-ratio:16/10;border-radius:var(--r)}
   .books-grid{grid-template-columns:1fr}
+  .exp-card{padding:24px 20px}
+  .exp-role{font-size:18px}
+  .exp-body{font-size:14px}
+  .edu-card{padding:24px 20px}
+  .edu-degree{font-size:17px}
+  .talk-card{padding:20px 20px}
+  .talk-title{font-size:15px}
+  .talk-badge{font-size:10px;padding:5px 12px}
+  .pub-card{padding:20px 20px;grid-template-columns:44px 1fr;gap:12px}
+  .pub-title{font-size:14px}
+  .pub-authors{font-size:13px}
+  .pub-venue{font-size:12px}
+  .contact-heading{font-size:clamp(24px,6vw,32px)}
+  .contact-desc{font-size:15px}
+  .contact-email{font-size:15px}
+  .about-prose p{font-size:15px}
+  .aside-row{flex-direction:column;gap:2px;text-align:left}
+  .aside-v{text-align:left}
+  .foot-desc{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){
   .fl,.fg{animation:none;stroke-dashoffset:0}
@@ -239,7 +273,6 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
 
 <div class="nav-outer" id="navOuter">
 <nav class="nav">
-  <a href="#home" class="nav-brand">Lareb Zar Khan</a>
   <div class="nav-links" id="navLinks">
     <a href="#about" onclick="closeNav()">About</a>
     <a href="#experience" onclick="closeNav()">Experience</a>
@@ -257,9 +290,9 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
 
 <!-- HERO -->
 <div class="hero" id="home">
+  <div class="hero-name">Lareb Zar Khan</div>
   <div class="hero-eyebrow">Optical Network Design Engineer · Meta</div>
   <h1>Building the Optical Network Behind AI and the World's Largest Social Platforms</h1>
-  <p class="hero-desc">Designing the long-haul fibre infrastructure at Meta that connects billions of people and powers the AI workloads.</p>
 
   <div class="hero-img">
     <div class="hero-img-inner" style="background:linear-gradient(135deg,#110f0d 0%,#1a1510 30%,#151210 70%,#0e0d0b 100%)">
@@ -614,7 +647,7 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
   <div class="contact-grid sr">
     <div class="contact-primary">
       <h2 class="contact-heading">Get in touch</h2>
-      <p class="contact-desc">If you like to talk about AI for optical networks or/and optical networks for AI — let's connect.</p>
+      <p class="contact-desc">If like to talk about AI for optical networks or/and optical networks for AI — let's connect.</p>
       <a href="mailto:larebzarkhan@gmail.com" class="contact-email">larebzarkhan@gmail.com</a>
     </div>
     
