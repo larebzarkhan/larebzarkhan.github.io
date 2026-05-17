@@ -116,14 +116,6 @@ a{color:inherit;text-decoration:none}
 .exp-body strong{color:var(--ink);font-weight:600}
 .exp-sub{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:22px 0 8px}
 
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
-.skill-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:transform .3s,border-color .3s}
-.skill-card:hover{transform:translateY(-3px);border-color:var(--border-h)}
-.skill-icon{width:44px;height:44px;border-radius:var(--r-sm);background:var(--accent-soft);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:18px}
-.skill-card h3{font-size:17px;font-weight:700;margin-bottom:10px}
-.skill-card p{font-size:15px;line-height:1.65;color:var(--ink-2)}
-
 /* EDUCATION */
 .edu-list{display:grid;gap:16px;margin-top:48px}
 .edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px 36px;transition:transform .3s,border-color .3s}
@@ -228,7 +220,6 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
   <div class="nav-links" id="navLinks">
     <a href="#about" onclick="closeNav()">About</a>
     <a href="#experience" onclick="closeNav()">Experience</a>
-    <a href="#skills" onclick="closeNav()">Skills</a>
     <a href="#education" onclick="closeNav()">Education</a>
     <a href="#publications" onclick="closeNav()">Publications</a>
     <a href="#talks" onclick="closeNav()">Talks</a>
@@ -404,37 +395,6 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
         </ul>
       </div>
     </article>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- SKILLS -->
-<div class="section" id="skills">
-  <div class="section-eyebrow sr">Skills</div>
-  <div class="section-heading sr">What I do</div>
-
-  <div class="skills-grid">
-    <div class="skill-card sr">
-      <div class="skill-icon">⟐</div>
-      <h3>Optical Network Design</h3>
-      <p>DWDM, 400/800ZR+ transceivers, WL5 &amp; GX42 transponders, CIENA optical line systems, channel planning, route &amp; terminal design for long-haul P2P and meshed architectures, technology migrations.</p>
-    </div>
-    <div class="skill-card sr">
-      <div class="skill-icon">⊞</div>
-      <h3>Capacity Planning</h3>
-      <p>Optical sizing, capacity planning within site space-and-power constraints, cost-efficient network growth planning across terrestrial and subsea infrastructure.</p>
-    </div>
-    <div class="skill-card sr">
-      <div class="skill-icon">⟁</div>
-      <h3>Automation &amp; Tooling</h3>
-      <p>Python, API development and optimisation, internal tooling development, agentic AI workflows for network engineering processes.</p>
-    </div>
-    <div class="skill-card sr">
-      <div class="skill-icon">⬡</div>
-      <h3>Cross-Functional Delivery</h3>
-      <p>Multi-region program coordination, external vendor engagement, network deployment lifecycle from planning through deployment.</p>
-    </div>
   </div>
 </div>
 
@@ -622,7 +582,6 @@ footer{max-width:var(--max);margin:0 auto;padding:48px var(--g);border-top:1px s
     <h4>Sections</h4>
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
     <a href="#education">Education</a>
     <a href="#publications">Publications</a>
     <a href="#talks">Talks</a>
